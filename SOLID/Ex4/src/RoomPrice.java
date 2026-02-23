@@ -1,4 +1,3 @@
-import java.util.*;
 
 public class RoomPrice implements PriceComponent{
     private final int roomType;
