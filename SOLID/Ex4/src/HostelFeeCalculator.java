@@ -17,21 +17,35 @@ public class HostelFeeCalculator {
     }
 
     private Money calculateMonthly(BookingRequest req) {
-        double base;
-        switch (req.roomType) {
-            case LegacyRoomTypes.SINGLE -> base = 14000.0;
-            case LegacyRoomTypes.DOUBLE -> base = 15000.0;
-            case LegacyRoomTypes.TRIPLE -> base = 12000.0;
-            default -> base = 16000.0;
-        }
+        //double base;
+        // switch (req.roomType) {
+        //     case LegacyRoomTypes.SINGLE -> base = 14000.0;
+        //     case LegacyRoomTypes.DOUBLE -> base = 15000.0;
+        //     case LegacyRoomTypes.TRIPLE -> base = 12000.0;
+        //     default -> base = 16000.0;
+        // }
+        // double add = 0.0;
+        // for (AddOn a : req.addOns) {
+        //     if (a == AddOn.MESS) add += 1000.0;
+        //     else if (a == AddOn.LAUNDRY) add += 500.0;
+        //     else if (a == AddOn.GYM) add += 300.0;
+        // }
 
-        double add = 0.0;
+        // return new Money(base + add);
+
+        List<PriceComponent> list = new ArrayList<>();
+        list.add(new RoomPrice(req.roomType));
+
         for (AddOn a : req.addOns) {
-            if (a == AddOn.MESS) add += 1000.0;
-            else if (a == AddOn.LAUNDRY) add += 500.0;
-            else if (a == AddOn.GYM) add += 300.0;
+            list.add(new AddonPrice(a));
         }
 
-        return new Money(base + add);
+        Money total = new Money(0);
+
+        for (PriceComponent p : list){
+            total = total.plus(p.cost());
+        }
+        return total;
+
     }
 }
