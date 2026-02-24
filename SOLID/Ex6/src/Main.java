@@ -16,8 +16,11 @@ public class Main {
         } catch (RuntimeException ex) {
             System.out.println("WA ERROR: " + ex.getMessage());
             audit.add("WA failed");
+            return;
         }
 
         System.out.println("AUDIT entries=" + audit.size());
     }
 }
+
+

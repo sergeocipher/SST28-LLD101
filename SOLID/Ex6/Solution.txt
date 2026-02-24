@@ -1,0 +1,16 @@
+What was violated?
+ - in the  base case never stated that the phoneNo must start with "+" 
+   But subclass WhatsappSender added a stricter rule 
+   Tightened the precondition 
+
+ - In the EmailSender  we silenetly truncated the message greater than 40 
+   caller thinks the full meassge is sent 
+   subclass modifies secretly 
+
+ - Base class was vague do not define inout validation null validation etc 
+
+ How we solve then ?
+  - we made base contract explicit  like centralized null validation 
+  - remove hidden truncated behaviour rather throw error 
+  
+
