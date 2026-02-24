@@ -1,0 +1,21 @@
+Where it was violated?
+
+1. switch-case room : if add a new room we must change the core logic 
+    this vilated OCP 
+
+2. Add-on branching : we must change the core logic 
+    this violates OCP 
+
+3. HostelFeeCalculator is calculating fee , printing recipt , saving booking 
+   this violates srp 
+
+how we solve them ?
+
+ - create a interface Pricecomponent  anything contributes to total fee 
+
+- encapsulated roomPricing and addonPricing 
+
+- updated calculator we remove switch 
+ it does not know prices it just sums it 
+
+

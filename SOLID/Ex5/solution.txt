@@ -1,0 +1,24 @@
+where it was violated?
+ 1. PdfExpoter tightens the precondition 
+
+ 2. Json expoter handles null differently
+    other expoter would throw  nullpointer exceptions 
+    that breaks substituability (lsp violated)
+
+ 3. CsvExpoter changes the data  
+    caller expect the same data 
+    data semantics changed (lsp violated)
+
+
+How to solve it?
+
+1. define clear base contract : centralized null handiling 
+
+2. In the json Expoter we remove the speacial null behaviour 
+   becuase we have handled in the base class 
+
+3. as mentioned we have to keep the output same 
+
+
+    
+     
