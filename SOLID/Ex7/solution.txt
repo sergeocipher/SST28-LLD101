@@ -1,0 +1,9 @@
+what was violated? 
+ - fat interface : every class that impleted it have to implemented all the methods whether 
+    whether they are neede or not 
+    ISP violation 
+
+How we solve them ?
+ - we created 4 interface like powerable , tem , birgntness , inputconnector .
+ - now different devices implemet as per requirement 
+ - capability-based interfaces
