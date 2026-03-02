@@ -1,0 +1,21 @@
+what was violated??
+ CafeteriaSystem.checkout() was doing too many things:
+Menu lookup
+Subtotal calculation
+Tax calculation
+Discount calculation
+Invoice formatting
+Printing
+Persistence
+
+How We Solved It
+
+We separated responsibilities into components:
+
+TaxPolicy → handles tax logic
+
+DiscountPolicy → handles discount rules
+
+InvoiceFormatter → handles formatting
+
+InvoiceRepository → handles persistence
