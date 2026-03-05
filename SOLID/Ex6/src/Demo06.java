@@ -12,6 +12,7 @@ public class Demo06 {
         email.send(n);
         sms.send(n);
         try {
+            PhoneValidator.requireWhatsAppPhone(n.phone);
             wa.send(n);
         } catch (RuntimeException ex) {
             System.out.println("WA ERROR: " + ex.getMessage());
