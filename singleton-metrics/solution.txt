@@ -1,0 +1,35 @@
+what is wrong ?
+ - the constructor is not private :  anyone can create an object -> constructor (private)
+ - Lazy instialization is not thread safe : two threas can see instnace == null and can create two different object 
+   -> we can use double checked locking 
+ - the reflection attack : Reflection means:
+
+👉 A program can inspect and manipulate classes at runtime.
+
+You can:
+
+access private fields
+
+call private methods
+
+call private constructors
+
+Normally Java blocks these because of access modifiers (private, protected, etc.).
+
+But reflection can bypass them.
+
+we are able call the construtor and create object -> 
+
+what we will do we write a picce of code inside the private constructor 
+private MetricsRegistry() {
+
+    if (INSTANCE != null) {
+        throw new RuntimeException("Singleton already created!");
+    }
+
+}
+
+1️⃣ Normal object creation
+2️⃣ Multithreading
+3️⃣ Reflection attack
+4️⃣ Serialization attack
